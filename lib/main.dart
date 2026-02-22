@@ -2,24 +2,22 @@ import 'package:flutter/material.dart';
 import 'screens/home_page.dart';
 import 'screens/translate_page.dart';
 import 'screens/settings_page.dart';
+import 'screens/login.dart';
+import 'screens/guide.dart';
 
 void main() {
-  runApp(const SmartGloveApp());
+  runApp(const NatiqApp());
 }
 
-class SmartGloveApp extends StatelessWidget {
-  const SmartGloveApp({super.key});
+class NatiqApp extends StatelessWidget {
+  const NatiqApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Smart Glove Translator',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-        scaffoldBackgroundColor: const Color(0xFFF5F7FA),
-      ),
-      home: const MainNavigation(),
+      title: 'ناطق',
+      home: Login(), // 👈 Start with Login
     );
   }
 }
@@ -46,16 +44,19 @@ class _MainNavigationState extends State<MainNavigation> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.teal,
+        selectedItemColor: const Color(0xFF1565C0),
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.translate), label: "Translate"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.translate), label: "Translate"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: "Settings"),
         ],
       ),
     );
