@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'signup_ar.dart';
+
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
@@ -102,17 +104,36 @@ class _SignUpState extends State<SignUp> {
                 child: Column(
                   children: [
                     const SizedBox(height: 16),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        style: IconButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor:
-                              const Color(0xFF0F2D78).withValues(alpha: 0.85),
+                    Row(
+                      children: [
+                        IconButton(
+                          style: IconButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor:
+                                const Color(0xFF0F2D78).withValues(alpha: 0.85),
+                          ),
+                          onPressed: () => Navigator.pop(context),
+                          icon: const Icon(Icons.arrow_back),
                         ),
-                        onPressed: () => Navigator.pop(context),
-                        icon: const Icon(Icons.arrow_back),
-                      ),
+                        const Spacer(),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignUpArabic(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'العربية',
+                            style: TextStyle(
+                              color: Color(0xFF1F4FB2),
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 70),
                     Container(
@@ -296,33 +317,6 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 16),
-                            const Row(
-                              children: [
-                                Expanded(child: Divider()),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  child: Text(
-                                    'or continue with',
-                                    style: TextStyle(
-                                      color: Color(0xFF7A89A8),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(child: Divider()),
-                              ],
-                            ),
-                            const SizedBox(height: 14),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                _SocialChip(label: 'Google'),
-                                SizedBox(width: 10),
-                                _SocialChip(label: 'Apple'),
-                                SizedBox(width: 10),
-                                _SocialChip(label: 'Facebook'),
-                              ],
-                            ),
                             const SizedBox(height: 18),
                             Center(
                               child: TextButton(
@@ -414,26 +408,6 @@ class _LabeledField extends StatelessWidget {
         const SizedBox(height: 7),
         child,
       ],
-    );
-  }
-}
-
-class _SocialChip extends StatelessWidget {
-  const _SocialChip({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton(
-      style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        side: const BorderSide(color: Color(0xFFD9E3F4)),
-        foregroundColor: const Color(0xFF33446B),
-      ),
-      onPressed: () {},
-      child: Text(label),
     );
   }
 }

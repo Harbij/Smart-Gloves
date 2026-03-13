@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'guide.dart';
+import 'login_ar.dart';
 import 'signup.dart';
 
 class Login extends StatefulWidget {
@@ -86,6 +87,26 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     const SizedBox(height: 24),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginArabic(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'العربية',
+                          style: TextStyle(
+                            color: Color(0xFF1F4FB2),
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ),
                     Container(
                       width: 86,
                       height: 86,
