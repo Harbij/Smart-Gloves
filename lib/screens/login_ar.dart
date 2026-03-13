@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'forgot_password_ar.dart';
 import 'guide_ar.dart';
 import 'login.dart';
 import 'signup_ar.dart';
@@ -234,24 +235,12 @@ class _LoginArabicState extends State<LoginArabic> {
                                 children: [
                                   TextButton(
                                     onPressed: () {
-                                      showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            title: const Text('إعادة تعيين كلمة المرور'),
-                                            content: const Text(
-                                              'سيتم ربط إعادة تعيين كلمة المرور بالخادم لاحقًا.',
-                                            ),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: const Text('حسنًا'),
-                                              ),
-                                            ],
-                                          );
-                                        },
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ForgotPasswordArabicPage(),
+                                        ),
                                       );
                                     },
                                     child: const Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'forgot_password.dart';
 import 'guide.dart';
 import 'login_ar.dart';
 import 'signup.dart';
@@ -241,24 +242,12 @@ class _LoginState extends State<Login> {
                                 const Spacer(),
                                 TextButton(
                                   onPressed: () {
-                                    showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        return AlertDialog(
-                                          title: const Text('Reset Password'),
-                                          content: const Text(
-                                            'Password reset will be connected to backend later.',
-                                          ),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: const Text('OK'),
-                                            ),
-                                          ],
-                                        );
-                                      },
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ForgotPasswordPage(),
+                                      ),
                                     );
                                   },
                                   child: const Text(
