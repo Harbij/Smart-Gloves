@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'guide.dart';
+import 'guide_ar.dart';
 import 'login.dart';
 import 'signup_ar.dart';
 
@@ -33,7 +33,7 @@ class _LoginArabicState extends State<LoginArabic> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const Guide(),
+        builder: (context) => const GuideArabic(),
       ),
     );
   }
